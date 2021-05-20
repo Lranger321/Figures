@@ -10,7 +10,6 @@ public class Main {
 
 
     private static void createView() {
-
         JFrame frame = new JFrame();
         frame.setSize(600, 400);
         frame.add(new MainForm().getMainPanel());

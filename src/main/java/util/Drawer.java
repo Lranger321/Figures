@@ -41,21 +41,20 @@ public class Drawer implements Runnable{
         if(points == null) {
             points = calculator.getRandomPoints(width, height, pointsCount);
         }
-        for(PointCoordinates point:points){
-            g.drawOval((int) Math.round(point.getX()),(int) Math.round(point.getY()),5,5);
-        }
 
         PointCoordinates startPoint = points.get(0);
 
         while (true){
             PointCoordinates point = calculator.getPoint(startPoint,points.get(random.nextInt(pointsCount)));
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                break;
-            }
-            System.out.println("work");
+//            try {
+//                Thread.sleep(10);
+//            } catch (InterruptedException e) {
+//                break;
+//            }
             g.fillOval((int) Math.round(point.getX()),(int) Math.round(point.getY()),5,5);
+            for(PointCoordinates p:points){
+                g.drawOval((int) Math.round(p.getX()),(int) Math.round(p.getY()),10,10);
+            }
             startPoint = point;
         }
 

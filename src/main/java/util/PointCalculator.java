@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static java.lang.Double.NaN;
-
 public class PointCalculator {
 
     private final Random random = new Random();
 
+    // 0.5 if 3 points = fractal
+    // 0.25 interesting thing
+
+    private static final Double DIVIDER = 0.49;
+
 
     public PointCoordinates getPoint(PointCoordinates firstPoint, PointCoordinates secondPoint) {
-        return new PointCoordinates((firstPoint.getX() + secondPoint.getX()) / 2,
-                (firstPoint.getY() + secondPoint.getY()) / 2);
+        return new PointCoordinates((firstPoint.getX() + secondPoint.getX()) * DIVIDER,
+                (firstPoint.getY() + secondPoint.getY()) * DIVIDER);
     }
 
     public List<PointCoordinates> getRandomPoints(Double width, Double height, int count) {
